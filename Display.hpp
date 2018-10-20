@@ -13,6 +13,21 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
 #include "IMonitorDisplay.hpp"
+
+
+
+#include "CPUModule.hpp"
+#include "DataStorageModule.hpp"
+#include "HostnameModule.hpp"
+#include "NetworkModule.hpp"
+#include "OSInfoModule.hpp"
+#include "RAMModule.hpp"
+#include "TimeModule.hpp"
+
+#include <ncurses.h>
+
+
+
 #define MAXW 20				//- max char in single col
 class Display : public IMonitorDisplay
 {
@@ -30,13 +45,14 @@ protected:
 public:
 	Display();
 	Display(Display const & src);
-	Display(int x, int y, int w, int h);
+	Display(int x, int y);
 	virtual ~Display();
 
 	Display & operator  = (Display const & src);
 
 	virtual int getX();
 	virtual int getY();
+	virtual int getInfo();
 
 	virtual void setX(int src);
 	virtual void setY(int src);
@@ -46,6 +62,22 @@ public:
 
 	virtual void render();
 
+	CPUModule	 		cpu;
+	DataStorageModule   dsm;
+	HostnameModule      hnm;
+	NetworkModule       nm;
+	OSInfoModule		OSim;
+	RAMModule			ram;
+	TimeModule			tm;
+
+	bool cpuDraw;
+	bool dsmDraw;
+	bool hnmDraw;
+	bool nmDraw;
+	bool OSimDraw;
+	bool ramDraw;
+	bool tmDraw;
+	bool catDraw;
 };
 
 #endif

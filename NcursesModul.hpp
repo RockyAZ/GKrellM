@@ -13,7 +13,6 @@
 #ifndef NCURSESMODUL_HPP
 #define NCURSESMODUL_HPP
 
-#include <ncurses.h>
 #include "Display.hpp"
 
 class NcursesModul : public Display
@@ -23,13 +22,11 @@ public:
 	NcursesModul(NcursesModul const & src);
 
 //x, y - position of left upper angle
-	NcursesModul(int x, int y, int w, int h);
+	NcursesModul(int x, int y);
+
+	NcursesModul & operator = (NcursesModul const & src);
 
 	~NcursesModul();
-	// void render();
-
-// private:
-	// NcursesModul & operator = (NcursesModul const & src);
 };
 
 #endif

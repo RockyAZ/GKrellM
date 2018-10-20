@@ -1,23 +1,25 @@
-#******************************************************************************#
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: azaporoz <azaporoz@student.unit.ua>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/01 14:08:02 by azaporoz          #+#    #+#              #
-#    Updated: 2018/10/01 14:51:36 by azaporoz         ###   ########.fr        #
-#                                                                              #
-#******************************************************************************#
+CXX = clang++
+CXXFLAGS = -Wall -Werror -Wextra
+CXXXFLAGS = -Wall -Werror -Wextra -lncurses
+NAME = ft_gkrellm
 
-NAME = rush
+SRC = CPUModule.cpp DataStorageModule.cpp Display.cpp HostnameModule.cpp NcursesModul.cpp NetworkModule.cpp   OSInfoModule.cpp RAMModule.cpp TimeModule.cpp main.cpp
 
-all:
-	clang++ main.cpp Display.cpp NcursesModul.cpp -lncurses -o $(NAME)
+
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CXX) $(CXXXFLAGS) -o $(NAME) $(OBJ)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	rm -rf $(NAME)
+	rm -rf $(OBJ)
 
 fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all

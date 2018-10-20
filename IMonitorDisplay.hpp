@@ -14,19 +14,12 @@
 #define IMONITORDISPLAY_HPP
 
 #include <iostream>
-#include <ncurses.h>
 
 class IMonitorDisplay
 {
 public:
 	virtual ~IMonitorDisplay(){}
-
-
 	virtual void	render() = 0;
-private:
-	// IMonitorDisplay();
-	// IMonitorDisplay(IMonitorDisplay const & src);
-	// IMonitorDisplay & operator = (IMonitorDisplay const & src);
 };
 
 #endif

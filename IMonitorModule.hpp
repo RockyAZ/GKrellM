@@ -1,11 +1,12 @@
-// ************************************************************************** //
-//                                                                            //
-//                                                        :::      ::::::::   //
-//   IMonitorModule.hpp                                 :+:      :+:    :+:   //
-//                                                    +:+ +:+         +:+     //
-//   By: azaporoz <azaporoz@student.unit.ua>        +#+  +:+       +#+        //
-//                                                +#+#+#+#+#+   +#+           //
-//   Created: 2018/10/13 20:33:19 by azaporoz          #+#    #+#             //
-//   Updated: 2018/10/13 20:33:19 by azaporoz         ###   ########.fr       //
-//                                                                            //
-// ************************************************************************** //
+#ifndef IMONITOR_MODULE_HPP
+# define IMONITOR_MODULE_HPP
+#include <iostream>
+
+class IMonitorModule
+{
+public:
+	virtual void	parse_it(std::string) = 0;
+	~IMonitorModule() { }
+};
+
+#endif
